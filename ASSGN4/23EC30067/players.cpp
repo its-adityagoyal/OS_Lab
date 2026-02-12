@@ -34,6 +34,9 @@ void handler_PP(int sig){
             if(kill(pid,0)==0){ //Player is alive
                 kill(pid,SIGINT);
             }
+            cout<<"Player "<<(char)('A'+i)<<" exited\n";
+            fflush(stdout);
+            sleep(0.5);
         }
         while(wait(NULL) > 0);
         shmdt(Mb);

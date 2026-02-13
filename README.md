@@ -8,3 +8,4 @@ top
 ipcs -m  
 ipcs  
 ipcrm -m shmid  
+ipcs -s

@@ -72,8 +72,6 @@ void nomad(int i){
             cout<<"                 Nomad "<<i<<" enters [other nomads present] (N_CNT = "<<NOMAD_COUNT<<", D_CNT = "<<DEMON_COUNT<<", state = N_INSIDE)"<<endl;
             cout.flush();
         }
-        //Admit all NOMAD
-
         cond_unlock(CV);
 
         double delay = 0.5 + (double)rand() / RAND_MAX * 0.5;

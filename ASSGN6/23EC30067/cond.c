@@ -10,6 +10,7 @@ typedef struct{
     int semid;
     int shmid;
 }cond_t;
+
 void P (int s, int sem_no){
    struct sembuf b;
    b.sem_num = sem_no;
@@ -54,7 +55,7 @@ void cond_wait(cond_t CV){
     shmdt(count);
     cond_unlock(CV);
     sleep(1);  //Simulated atomicity of the combined release and wait using sleep
-    P(CV.semid,0);
+    P(CV.semid,1);
 
     cond_lock(CV);
     count=(int*)shmat(CV.shmid,0,0);
@@ -70,7 +71,7 @@ void cond_signal(cond_t CV){
     shmdt(count);
 }
 
-void cond_boradcast(cond_t CV){
+void cond_broadcast(cond_t CV){
     int *count=(int*)shmat(CV.shmid,0,0);
     if(count[0]==0){
         return;

@@ -10,8 +10,8 @@ extern "C" {
 // Structure definition
 typedef struct _cond_t {
     // Semaphore at index 0 is mtx and semaphore at index 1 is cnd
-    int mtx_cnd_semid;
-    int count_shmid;
+    int semid;
+    int shmid;
 }cond_t;
 
 // Function declarations
